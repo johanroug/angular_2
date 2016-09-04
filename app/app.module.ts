@@ -8,6 +8,6 @@ import {CourseService} from "./course.service";
   imports:      [ BrowserModule ],
   declarations: [ AppComponent, CoursesComponent ],
   bootstrap:    [ AppComponent ],
-  providers     [ CourseService ]
+  providers:    [ CourseService ]
 })
 export class AppModule { }
