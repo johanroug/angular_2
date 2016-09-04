@@ -12,6 +12,10 @@ typings/
 # Misc
 tmp/
 
+#javascript
+**/*.map
+**/*.js
+
 # Mac OSX Finder files.
 **/.DS_Store
 .DS_Store
