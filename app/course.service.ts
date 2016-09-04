@@ -1,5 +1,5 @@
 export class CourseService {
-  getCourses():string[] {
+  public getCourses():string[] {
     return ["Course 1", "Course 2", "Course 3"];
   }
 }
