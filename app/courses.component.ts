@@ -10,23 +10,15 @@ import {CourseService} from "./course.service";
       <li *ngFor="let course of courses">
        {{course}}
       </li>
-    </ul>
-    <i class="glyphicon" 
-      (click)="toggleStar()" 
-      [class.glyphicon-star]="starClass"
-      [class.glyphicon-star-empty]="!starClass"></i>
+    </ul>    
   `
 })
 export class CoursesComponent {
   public title = "Courses title";
   public courses;
-  public starClass=true;
 
   constructor(courseService: CourseService ) {
     this.courses = courseService.getCourses();
   }
 
-  toggleStar() {
-    this.starClass =! this.starClass;
-  }
 }

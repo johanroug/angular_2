@@ -5,6 +5,12 @@ import {Component} from '@angular/core';
   template: `  
     <courses></courses>
     <authors></authors>
+    <favorite [isFavorite]="post.isFavorite"></favorite>
   `
 })
-export class AppComponent {}
+export class AppComponent {
+  post = {
+    title: "title",
+    isFavorite: true
+  }
+}
