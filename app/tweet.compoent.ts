@@ -29,7 +29,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class TweetComponent implements OnInit{
   @Input() data;
 
-  ngOnInit() {
+ngOnInit() {
     console.log(this.data);
   }
 }
