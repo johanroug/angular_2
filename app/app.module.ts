@@ -5,9 +5,12 @@ import { CoursesComponent } from "./courses.component";
 import { CourseService }    from "./course.service";
 import { AuthorService }    from "./authors.service";
 import { Autogrow }         from "./autogrow.directive";
-import { FavoriteComponent} from "./favorite.component";
-import { LikeComponent}     from "./like.component";
-import { VoteComponent}     from "./vote.component";
+import { FavoriteComponent }from "./favorite.component";
+import { LikeComponent }    from "./like.component";
+import { VoteComponent }    from "./vote.component";
+import { TweetsService }    from "./tweets.service";
+import { TweetsComponent }  from "./tweets.component";
+import { TweetComponent }   from "./tweet.compoent";
 
 @NgModule({
   imports:      [ BrowserModule ],
@@ -16,9 +19,11 @@ import { VoteComponent}     from "./vote.component";
                   Autogrow,
                   FavoriteComponent,
                   LikeComponent,
-                  VoteComponent
+                  VoteComponent,
+                  TweetsComponent,
+                  TweetComponent
                 ],
   bootstrap:    [ AppComponent ],
-  providers:    [ CourseService, AuthorService ]
+  providers:    [ CourseService, AuthorService, TweetsService ]
 })
 export class AppModule { }

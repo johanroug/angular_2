@@ -3,7 +3,7 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'my-app',
   template: `  
-    
+    <tweets></tweets>
     <courses></courses>
     <favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChnage($event)"></favorite>
     <like [liked]="like.liked" [count]="like.count"></like>

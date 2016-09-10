@@ -4,7 +4,6 @@ import {Component, Input} from '@angular/core';
     moduleId: module.id,
     selector: 'like',
     styles: [`
-      * {font-size: 30px;}
       .glyphicon {
         color: #ccc;
         cursor: pointer;
