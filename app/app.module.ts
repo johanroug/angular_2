@@ -1,6 +1,7 @@
 import { NgModule }         from '@angular/core';
 import { BrowserModule }    from '@angular/platform-browser';
 import { AppComponent }     from './app.component';
+import { ExamplesComponent }from "./examples.component";
 import { CoursesComponent } from "./courses.component";
 import { CourseService }    from "./course.service";
 import { AuthorService }    from "./authors.service";
@@ -15,6 +16,7 @@ import { TweetComponent }   from "./tweet.compoent";
 @NgModule({
   imports:      [ BrowserModule ],
   declarations: [ AppComponent,
+                  ExamplesComponent,
                   CoursesComponent,
                   Autogrow,
                   FavoriteComponent,
@@ -22,6 +24,7 @@ import { TweetComponent }   from "./tweet.compoent";
                   VoteComponent,
                   TweetsComponent,
                   TweetComponent
+
                 ],
   bootstrap:    [ AppComponent ],
   providers:    [ CourseService, AuthorService, TweetsService ]

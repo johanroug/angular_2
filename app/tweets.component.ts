@@ -7,11 +7,12 @@ import { TweetsService }  from "./tweets.service";
     template: `      
       <div class="media" *ngFor="let tweet of tweets">
         <tweet [data]="tweet"></tweet>
-      </div>
+      </div>      
     `
 })
 export class TweetsComponent {
   public tweets;
+
   constructor(tweets: TweetsService) {
     this.tweets = tweets.getTweets();
   }
