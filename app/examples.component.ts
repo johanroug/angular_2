@@ -3,6 +3,13 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'examples',
   template: `  
+  <h1>Angular 2</h1>
+    <zippy title="This is the title">
+      Here is the content        
+    </zippy>
+    <zippy title="This is another the title">
+      Here is another content        
+    </zippy>
     <tweets></tweets>
     <courses></courses>
     <favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChnage($event)"></favorite>

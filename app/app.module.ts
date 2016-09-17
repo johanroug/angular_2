@@ -12,6 +12,7 @@ import { VoteComponent }    from "./vote.component";
 import { TweetsService }    from "./tweets.service";
 import { TweetsComponent }  from "./tweets.component";
 import { TweetComponent }   from "./tweet.compoent";
+import {ZippyComponent} from "./zippy.component";
 
 @NgModule({
   imports:      [ BrowserModule ],
@@ -23,8 +24,8 @@ import { TweetComponent }   from "./tweet.compoent";
                   LikeComponent,
                   VoteComponent,
                   TweetsComponent,
-                  TweetComponent
-
+                  TweetComponent,
+                  ZippyComponent
                 ],
   bootstrap:    [ AppComponent ],
   providers:    [ CourseService, AuthorService, TweetsService ]
