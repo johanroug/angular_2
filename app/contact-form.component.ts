@@ -6,7 +6,13 @@ import { Component } from '@angular/core';
     templateUrl: 'contact-form.component.html'
 })
 export class ContactFormComponent {
+  user = {
+    name: "johan",
+    comment: "min kommentar",
+    gender: "female"
+  }
+  genders = ["male", "female"]
   onSubmit(value) {
-    console.log(value);
+    console.log(this.user);
   }
 }
