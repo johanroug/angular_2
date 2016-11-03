@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpService} from "./http.service";
 
 @Component({
@@ -8,8 +8,13 @@ import {HttpService} from "./http.service";
   `,
   providers: [HttpService]
 })
-export class AppComponent {
-  constructor(private _httpService: HttpService) {
-    this._httpService.getPost().subscribe(posts => console.log(posts));
+export class AppComponent implements OnInit {
+  constructor(private _httpService: HttpService) {}
+
+  ngOnInit() {
+    this._httpService.getData()
+      .subscribe(
+        (data) => console.log(data)
+      );
   }
 }
