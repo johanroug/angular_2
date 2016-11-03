@@ -1,15 +1,15 @@
 import {Component} from '@angular/core';
-import {PostService} from "./post.service";
+import {HttpService} from "./http.service";
 
 @Component({
   selector: 'my-app',
   template: `
     <h1>Angular 2</h1>
   `,
-  providers: [PostService]
+  providers: [HttpService]
 })
 export class AppComponent {
-  constructor(private _postService: PostService) {
-    this._postService.getPost().subscribe(posts => console.log(posts));
+  constructor(private _httpService: HttpService) {
+    this._httpService.getPost().subscribe(posts => console.log(posts));
   }
 }
