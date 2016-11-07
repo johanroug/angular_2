@@ -5,16 +5,20 @@ import {HttpService} from "./http.service";
   selector: 'my-app',
   template: `
     <h1>Angular 2</h1>
+    {{title}}
   `,
   providers: [HttpService]
 })
 export class AppComponent implements OnInit {
+  public title;
   constructor(private _httpService: HttpService) {}
 
   ngOnInit() {
     this._httpService.getData()
       .subscribe(
-        (data) => console.log(data)
+        (data) => {
+          this.title = data;
+        }
       );
   }
 }
