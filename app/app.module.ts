@@ -1,18 +1,17 @@
 import { NgModule }         from '@angular/core';
 import { BrowserModule }    from '@angular/platform-browser';
 import { AppComponent }     from './app.component';
-import { ExamplesComponent }from "./examples.component";
-import { CoursesComponent } from "./courses.component";
-import { CourseService }    from "./course.service";
-import { AuthorService }    from "./authors.service";
-import { Autogrow }         from "./autogrow.directive";
-import { FavoriteComponent }from "./favorite.component";
-import { LikeComponent }    from "./like.component";
-import { VoteComponent }    from "./vote.component";
-import { TweetsService }    from "./tweets.service";
-import { TweetsComponent }  from "./tweets.component";
-import { TweetComponent }   from "./tweet.compoent";
-import {ZippyComponent} from "./zippy.component";
+import { ExamplesComponent }from "./components/examples.component";
+import { CoursesComponent } from "./components/courses/courses.component";
+import { CourseService }    from "./components/courses/course.service";
+import { Autogrow }         from "./components/misc/autogrow.directive";
+import { FavoriteComponent }from "./components/misc/favorite.component";
+import { LikeComponent }    from "./components/misc/like.component";
+import { VoteComponent }    from "./components/misc/vote.component";
+import { TweetsService }    from "./components/tweets/tweets.service";
+import { TweetsComponent }  from "./components/tweets/tweets.component";
+import { TweetComponent }   from "./components/tweets/tweet.compoent";
+import {ZippyComponent}     from "./components/misc/zippy.component";
 
 @NgModule({
   imports:      [ BrowserModule ],
@@ -28,6 +27,6 @@ import {ZippyComponent} from "./zippy.component";
                   ZippyComponent
                 ],
   bootstrap:    [ AppComponent ],
-  providers:    [ CourseService, AuthorService, TweetsService ]
+  providers:    [ CourseService, TweetsService ]
 })
 export class AppModule { }
