@@ -4,19 +4,22 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class CollectableService {
   private collectables: Collectable[] = [
-    { description: "Excepteur et qui dolore id aute elit deserunt occaecat elit aliqua excepteur labore ipsum exercitation.", type: "book" },
-    { description: "Enim duis nostrud ad eiusmod exercitation ut.", type: "garbage" },
-    { description: "Adipisicing non minim occaecat pariatur in id voluptate deserunt.", type: "photo" },
-    { description: "Deserunt culpa elit id occaecat excepteur magna ea officia ea.", type: "piece of paper" }
+    { description: "1", type: "book" },
+    { description: "2", type: "garbage" },
+    { description: "3", type: "photo" },
+    { description: "4", type: "piece of paper" }
   ];
 
-  private collection: Collectable[] = [];
+  private collection: any = [];
 
-  getCollectables() {
-    return this.collectables;
+  getCollectables() {    
+    return this.collectables; 
   }
 
-  getCollection() {
+  getCollection() {     
+    if (localStorage.getItem("johan") !== null) {
+      this.collection = JSON.parse(localStorage.getItem("johan"));       
+    }  
     return this.collection;
   }
 
@@ -25,9 +28,11 @@ export class CollectableService {
       return;
     }
     this.collection.push(item);
+    localStorage.setItem("johan", JSON.stringify(this.collection));           
   }
 
   removeFromCollection(item) {
     this.collection.splice(this.collection.indexOf(item), 1);
+    localStorage.setItem("johan", JSON.stringify(this.collection));   
   }
 }
