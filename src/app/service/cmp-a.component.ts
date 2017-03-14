@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { LogService } from './log.service';
+import { DataService } from './data.service';
 
 @Component({
     selector: 'si-cmp-a',
@@ -19,25 +21,25 @@ import { Component } from '@angular/core';
         <h3>Received Value</h3>
         <p>{{value}}</p>
     </div>
-  `
+  `,
+  providers: [LogService, DataService]
 })
 export class CmpAComponent {
     value = '';
-    items: string[] = [];
+    items = [];
 
-    onLog(value: string) {
+   constructor(private logService: LogService, private dataService: DataService) {}
 
-    }
+   onLog(value: string) {
+     this.logService.writeToLog(value);
+   }
 
-    onStore(value: string) {
+   onStore(value: string) {
+     this.dataService.addData(value);
+   }
 
-    }
-
-    onGet() {
-
-    }
-
-    onSend(value: string) {
-
-    }
+   onGet() {
+     console.log("asd");
+      this.items = this.dataService.getData().slice(0);
+   }
 }
