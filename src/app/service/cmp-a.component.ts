@@ -3,8 +3,8 @@ import { LogService } from './log.service';
 import { DataService } from './data.service';
 
 @Component({
-    selector: 'si-cmp-a',
-    template: `
+  selector: 'si-cmp-a',
+  template: `
     <div>
       <input type="text" #input>
       <button (click)="onLog(input.value)">Log</button>
@@ -21,25 +21,27 @@ import { DataService } from './data.service';
         <h3>Received Value</h3>
         <p>{{value}}</p>
     </div>
-  `,
-  providers: [LogService, DataService]
+  `
 })
 export class CmpAComponent {
-    value = '';
-    items = [];
+  value = '';
+  items = [];
 
-   constructor(private logService: LogService, private dataService: DataService) {}
+  constructor(private logService: LogService, private dataService: DataService) { }
 
-   onLog(value: string) {
-     this.logService.writeToLog(value);
-   }
+  onLog(value: string) {
+    this.logService.writeToLog(value);
+  }
 
-   onStore(value: string) {
-     this.dataService.addData(value);
-   }
+  onStore(value: string) {
+    this.dataService.addData(value);
+  }
 
-   onGet() {
-     console.log("asd");
-      this.items = this.dataService.getData().slice(0);
-   }
+  onGet() {
+    this.items = this.dataService.getData().slice(0);
+  }
+
+  onSend(value: string) {
+      this.dataService.pushData(value);
+  }
 }

@@ -1,3 +1,4 @@
+import { LogService } from './service/log.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule  } from '@angular/platform-browser';
 
@@ -14,7 +15,7 @@ import { CmpBComponent } from "./service/cmp-b.component";
         CmpBComponent
     ],
     imports: [BrowserModule],
-    providers: [],
+    providers: [LogService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
