@@ -1,10 +1,10 @@
-import { Angular3Page } from './app.po';
+import { AngularPage } from './app.po';
 
-describe('angular3 App', function() {
-  let page: Angular3Page;
+describe('angular App', () => {
+  let page: AngularPage;
 
   beforeEach(() => {
-    page = new Angular3Page();
+    page = new AngularPage();
   });
 
   it('should display message saying app works', () => {
