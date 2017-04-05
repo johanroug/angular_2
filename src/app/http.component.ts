@@ -13,7 +13,7 @@ export class HttpComponent {
 
   onSubmit(username: string, email: string) {
     this.httpService.sendData({username: username, email: email}).subscribe(
-      (data) => console.log(data)
+      (data) => console.log(data) // not needed but nice to have
     );
   }
 

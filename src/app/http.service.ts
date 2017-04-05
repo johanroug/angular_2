@@ -19,7 +19,7 @@ export class HttpService {
 
     return this.http.post("https://angular2-c5b59.firebaseio.com/data.json", body, {
       headers: headers
-    }).map((data: Response) => data.json());
+    }).map((data: Response) => data.json()); // not needed but nice to have.
   }
 
   getOwnData() {
