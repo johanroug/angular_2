@@ -1,0 +1,26 @@
+.filter-panel {
+	&__toggle {
+		cursor: pointer;
+		display: inline-block;
+		line-height: 40px;
+		padding-left: $grid-gutter-width / 2;
+
+		&:after {
+			content: "";
+			display: inline-block;
+			background: url("../img/search.svg") no-repeat right 0;
+			height: 20px;
+			margin-left: 15px;
+			width: 20px;
+			top: 5px;
+			position: relative;
+		}
+
+		&.active {
+			&:after {
+				display: none;
+			}
+		}
+	}
+
+}

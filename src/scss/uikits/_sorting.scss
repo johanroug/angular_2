@@ -1,0 +1,60 @@
+.sorting {
+	&__btn {
+		cursor: pointer;
+		position: relative;
+
+		&.active {
+			font-weight: 900;
+		}
+	}
+
+	&__icon {
+		display: inline-block;
+		width: 8px;
+		height: 10px;
+		position: absolute;
+    margin-left: 7px;
+		top: 5px;
+
+		&--default,
+		&--asc,
+		&--desc {
+			&:before, &:after {
+				display: block;
+				width: 0;
+				height: 0;
+				border-left: 4px solid transparent;
+				border-right: 4px solid transparent;
+				position: absolute;
+			}
+		}
+
+		&--default {
+			&:before {
+				content: "";
+				border-bottom: 4px solid #000;
+				top: 0;
+			}
+			&:after {
+				content: "";
+				border-top: 4px solid #000;
+				bottom: 0;
+			}
+		}
+
+		&--asc {
+			&:before {
+				content: "";
+				border-bottom: 4px solid #000;
+				top: 0;
+			}
+		}
+		&--desc {
+			&:before {
+				content: "";
+				border-top: 4px solid #000;
+				bottom: 0;
+			}
+		}
+	}
+}

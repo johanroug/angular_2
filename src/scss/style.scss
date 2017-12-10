@@ -1,0 +1,73 @@
+/*!
+ * GenesisUI - Bootstrap 4 Admin Template
+ * @version v1.8.8
+ * @link https://genesisui.com
+ * Copyright (c) 2017 creativeLabs Łukasz Holeczek
+ * @license Commercial
+ */
+// Override Boostrap variables
+@import "bootstrap-variables";
+
+// Import Bootstrap source files
+@import "bootstrap/bootstrap";
+
+// If you want you can import bootstrap scss files directly from node_modules.
+// To do this please remove @import "bootstrap/bootstrap"; and uncomment proper line.
+
+// Import Bootstrap source files from node_modules
+// @import "node_modules/bootstrap/scss/bootstrap";
+
+@import "node_modules/spinkit/scss/spinkit";
+// @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker.scss";
+
+// Override core variables
+@import "core-variables";
+
+// Import core styles
+@import "core/core";
+
+// Import UI Kits
+@import "uikits/uikits";
+
+// Custom styles
+@import "custom";
+
+@import "components/login";
+
+
+.missing {
+  background-color: rgb(155, 4, 4) !important;
+  color: #fff !important;
+}
+
+@media (max-width: 767px) {
+  [mobile-label] {
+    &:before {
+      content: attr(mobile-label);
+      font-weight: 900;
+      display: block;
+      width: 100%;
+		}
+
+		.inner-txt {
+			display: block;
+			width: 100%;
+		}
+  }
+
+  strong.list-group-item {
+    display: none;
+  }
+}
+
+a.list-group-item {
+	color: $body-color;
+}
+
+.list-group-horizontal {
+	margin-bottom: 1rem;
+}
+
+.list-group-item.sorting {
+	margin-bottom: 8px;
+}

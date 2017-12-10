@@ -1,0 +1,10 @@
+{
+  "id": 0,
+  "username": "string",
+  "initials": "string",
+  "name": "string",
+  "email": "string",
+  "mobile": "string",
+  "status": 0,
+  "toCompany": 0
+}

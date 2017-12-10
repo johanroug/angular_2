@@ -1,0 +1,65 @@
+pagination-controls + .items-pr-page {
+	@include media-breakpoint-up(md) {
+		margin-left: 41px;
+
+		&:before {
+			content: "";
+			background-color: #EBEBEB;
+			display: block;
+			height: 32px;
+			left: -21px;
+			margin-top: -24px;
+			position: absolute;
+			top: 50%;
+			width: 1px;
+		}
+	}
+}
+
+.items-pr-page {
+	margin-top: 15px;
+	padding: 0.1875rem 0;
+	position: relative;
+
+	@include media-breakpoint-down(md) {
+		text-align: center;
+	}
+
+	@include media-breakpoint-up(md) {
+		float: left;
+		margin-top: 0;
+	}
+
+	&__items {
+		display: inline-block;
+		list-style: none;
+		padding: 0;
+	}
+
+	&__title {
+		display: inline-block;
+		margin-right: 10px;
+	}
+
+	li {
+		display: inline-block;
+
+		&:before {
+			content: "|";
+			display: inline-block;
+			margin: 0 10px;
+		}
+
+		&:first-child:before {
+			display: none;
+		}
+
+		span {
+			cursor: pointer;
+
+		}
+	}
+	.active {
+		font-weight: 600;
+	}
+}

@@ -1,0 +1,180 @@
+<div *ngIf="!loaded && !error">
+	<div class="sk-three-bounce loading">
+		<div class="sk-child sk-bounce1"></div>
+		<div class="sk-child sk-bounce2"></div>
+		<div class="sk-child sk-bounce3"></div>
+	</div>
+</div>
+
+<div *ngIf="loaded" [ngClass]="{'animated fadeIn': loaded}">
+	<div class="filter-panel row">
+		<div
+			class="filter-panel__toggle"
+			[ngClass]="{ 'active' : !filterToggle }"
+			(click)="toggleFilter()">{{ filterToggle ? labels?.filter?.filterShow : labels?.filter?.filterHide }}</div>
+		<div class="col-24" *ngIf="!filterToggle">
+			<div class="row">
+				<div class="col-24 col-md-8 form-group">
+					<label class="sr-only" for="invoiceFilter">{{labels?.filter?.filterForInvoiceId}}</label>
+					<input class="form-control" id="invoiceFilter" name="invoiceFilter" placeholder="{{labels?.filter?.filterForInvoiceId}}" type="text" [(ngModel)]="invoiceFilter">
+				</div>
+				<div class="col-24 col-md-8 form-group">
+					<label class="sr-only" for="caseFilter ">{{labels?.filter?.filterForInvoiceId}}</label>
+					<input class="form-control" id="caseFilter" name="caseFilter" placeholder="{{labels?.filter?.filterForInvoiceNumber}}" type="text" [(ngModel)]="caseFilter">
+				</div>
+				<div class="col-24 col-md-8 form-group">
+					<label class="sr-only" for="locationFilter">{{labels?.filter?.filterForInvoiceId}}</label>
+					<input class="form-control" id="locationFilter" name="locationFilter" placeholder="{{labels?.filter?.filterForProjectName}}" type="text" [(ngModel)]="locationFilter">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-12">
+					<div class="form-group">
+						<label class="sr-only" for="rangeFrom">{{labels?.filter?.filterForInvoiceId}}</label>
+						<input type="text"
+							class="form-control"
+							#dpRangeFrom="bsDatepicker"
+							[bsConfig]="bsConfig"
+							placeholder="{{labels?.filter?.filterFrom}}"
+							id="rangeFrom"
+							name="rangeFrom"
+							value="{{rangeFrom | date: 'dd-MM-yyyy'}}"
+							bsDatepicker [(bsValue)]="rangeFrom">
+					</div>
+				</div>
+
+				<span class="date-spacer form-group "></span>
+
+				<div class="col-12">
+					<div class="form-group">
+						<label class="sr-only" for="rangeTo">{{labels?.filter?.filterForInvoiceId}}</label>
+						<input type="text"
+							class="form-control"
+							#dpRangeTo="bsDatepicker"
+							[bsConfig]="bsConfig"
+							placeholder="{{labels?.filter?.filterTo}}"
+							id="rangeTo"
+							name="rangeTo"
+							value="{{rangeTo | date: 'dd-MM-yyyy'}}"
+							bsDatepicker [(bsValue)]="rangeTo">
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="card">
+		<div class="card-header">
+			{{labels?.invoicesLabel}}
+		</div>
+		<div class="card-body">
+
+			<div class="list-group-horizontal">
+				<strong class="list-group-item sorting">
+					<div class="row" sortToggler [selected]="sortColumnClicked" (chosen)="sortArgs = $event">
+						<div *ngFor="let item of headerColumn"
+							class="sorting__btn col-{{item.grid}}"
+							(click)="onColumnSort(item.name)"
+							[ngClass]="{active: item.name === sortArgs.sortName}">
+							{{item.displayName}}
+							<i
+								class="sorting__icon"
+								[ngClass]="{
+									'sorting__icon--default': (item.name !== sortArgs.sortName),
+									'sorting__icon--asc': (item.name === sortArgs.sortName) && (sortArgs.sortAZ === 'asc'),
+									'sorting__icon--desc': (item.name === sortArgs.sortName) && (sortArgs.sortAZ === 'desc')}"></i>
+						</div>
+					</div>
+				</strong>
+				<a
+					[routerLink]="['/invoices/', invoice?.invoiceId]"
+					class="list-group-item list-group-item-action"
+					*ngFor="let invoice of invoices
+						| sortby:sortArgs
+						| stringFilter: invoiceFilter: 'invoiceId'
+						| stringFilter: caseFilter: 'invoiceNumber'
+						| stringFilter: locationFilter: 'projectName'
+						| fromTo: rangeFrom: rangeTo: 'invoiceDate'
+						| paginate: config">
+				<!-- <a
+					[routerLink]="['/invoices/', invoice?.invoiceId]"
+					class="list-group-item list-group-item-action"
+					*ngFor="let invoice of invoices
+						| sortby:sortArgs
+						| stringFilter: invoiceFilter: 'invoiceId'
+						| stringFilter: caseFilter: 'invoiceNumber'
+						| stringFilter: locationFilter: 'projectName'
+						| paginate: config"> -->
+					<div class="row">
+						<div class="cols-12 col-md-4" [attr.mobile-label]="labels?.invoices?.invoiceId">
+							<span class="inner-txt invoice-name-hover">
+								{{invoice?.invoiceId}}
+							</span>
+						</div>
+						<div class="cols-12 col-md-4" [attr.mobile-label]="labels?.invoices?.invoiceNumber">
+							<span class="inner-txt">
+								{{invoice?.invoiceNumber}}
+							</span>
+						</div>
+						<div class="cols-12 col-md-6" [attr.mobile-label]="labels?.invoices?.projectName">
+							<span class="inner-txt">
+								{{invoice?.projectName}}
+							</span>
+						</div>
+						<div class="cols-12 col-md-5" [attr.mobile-label]="labels?.invoices?.invoiceDate">
+							<span class="inner-txt">
+								{{invoice?.invoiceDate | date}}
+							</span>
+						</div>
+						<div class="cols-12 col-md-5" [attr.mobile-label]="labels?.invoices?.totalPrice">
+							<span class="inner-txt">
+								{{invoice?.totalPrice | number}} kr.
+							</span>
+						</div>
+
+					</div>
+				</a>
+
+				<div class="spacer"></div>
+
+				<!-- pager -->
+				<pagination-controls
+					class="pagination-sct"
+					[id]="config.id"
+					[nextLabel]="labels?.pagination?.next"
+					[previousLabel]="labels?.pagination?.prev"
+					(pageChange)="onPageChange($event)"></pagination-controls>
+
+
+					<div class="items-pr-page">
+						<span class="items-pr-page__title">{{labels?.pagination?.itemsPage}}: </span>
+						<ol class="items-pr-page__items">
+							<li>
+								<span
+									(click)="config.itemsPerPage = 15"
+									[ngClass]="{'active': config.itemsPerPage === 15}">15</span>
+							</li>
+							<li>
+							<span
+								(click)="config.itemsPerPage = 50"
+								[ngClass]="{'active': config.itemsPerPage === 50}">50</span>
+							</li>
+							<li>
+								<span
+									(click)="config.itemsPerPage = 100"
+									[ngClass]="{'active': config.itemsPerPage === 100}">100</span>
+							</li>
+						</ol>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</div>
+
+<!-- <pre>
+	{{invoices | json}}
+</pre> -->

@@ -1,0 +1,79 @@
+<div *ngIf="!loaded && !error">
+	<div class="sk-three-bounce loading">
+		<div class="sk-child sk-bounce1"></div>
+		<div class="sk-child sk-bounce2"></div>
+		<div class="sk-child sk-bounce3"></div>
+	</div>
+</div>
+
+<div *ngIf="loaded" [ngClass]="{'animated fadeIn': loaded}" >
+  <div class="row">
+    <div class="col-lg-24">
+      <div class="card">
+        <div class="card-header">
+          {{labels?.invoiceLabel}}
+        </div>
+        <div class="card-body">
+					<div class="form-group">
+						<div class="row">
+							<label class="control-label col-24 col-sm-12 col-lg-6">{{labels?.invoices?.invoiceId}}</label>
+							<span class="control-label col-24 col-sm-12 col-lg-18">
+								{{invoiceDetails?.invoiceId}}
+							</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<label class="control-label col-24 col-sm-12 col-lg-6">Charteque</label>
+							<span class="control-label col-24 col-sm-12 col-lg-18">
+								<span class="missing">	missing in JSON</span>
+							</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<label class="control-label col-24 col-sm-12 col-lg-6">{{labels?.invoices?.invoiceNumber}}</label>
+							<span class="control-label col-24 col-sm-12 col-lg-18">
+								{{invoiceDetails?.invoiceNumber}}
+							</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<label class="control-label col-24 col-sm-12 col-lg-6">{{labels?.invoices?.projectName}}</label>
+							<span class="control-label col-24 col-sm-12 col-lg-18">
+								{{invoiceDetails?.projectName}}
+							</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<label class="control-label col-24 col-sm-12 col-lg-6">{{labels?.invoices?.invoiceDate}}</label>
+							<span class="control-label col-24 col-sm-12 col-lg-18">
+								{{invoiceDetails?.invoiceDate | date}}
+							</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<label class="control-label col-24 col-sm-12 col-lg-6">{{labels?.invoices?.totalPrice}}</label>
+							<span class="control-label col-24 col-sm-12 col-lg-18">
+								{{invoiceDetails?.totalPrice | number}} kr.
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="card">
+        <div class="card-header">
+					{{labels?.downloadInvoice}}
+        </div>
+        <div class="card-body">
+					<a class="anchor" href="{{invoiceDetails?.invoicePath}}">{{labels?.downloadInvoiceAsPDF}}</a>
+				</div>
+			</div>
+
+    </div>
+	</div>
+</div>

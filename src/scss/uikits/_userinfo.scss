@@ -1,0 +1,21 @@
+.userinfo {
+	color: #fff;
+	margin: 0 10px;
+
+	@include media-breakpoint-up(md) {
+		margin: 0 30px;
+	}
+	@include media-breakpoint-up(lg) {
+		color: $theme-color;
+	}
+
+	&__name {
+		display: none;
+		@include media-breakpoint-up(sm) {
+			display: inline;
+		}
+	}
+	.btn {
+		margin-left: 10px;
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"invoiceId": 123,
+	"invoiceNumber": 123,
+	"invoiceType": 123,
+	"invoiceDate": 123,
+	"totalPrice": 123,
+	"toCompany": 123,
+	"projectNumber": 123,
+	"projectName": 123,
+	"invoicePath": 123,
+	"thumbnailPath": 123
+}

@@ -1,0 +1,34 @@
+pagination-controls {
+	@include media-breakpoint-down(md) {
+		text-align: center;
+	}
+
+	@include media-breakpoint-up(md) {
+		float: left;
+	}
+}
+.pagination-sct .ngx-pagination {
+	margin: 0 auto;
+	padding: 0;
+
+	.current {
+		background-color: $theme-pink;
+		font-weight: 600;
+	}
+
+	.pagination-previous {
+		padding-left: 0;
+		a::before,
+		&.disabled::before {
+			display: none;
+		}
+	}
+
+	.pagination-next {
+		padding-right: 0;
+		a::after,
+		&.disabled::after {
+			display: none;
+		}
+	}
+}
