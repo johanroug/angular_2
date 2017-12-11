@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('play App', () => {
+describe('angular App', () => {
   let page: AppPage;
 
   beforeEach(() => {
