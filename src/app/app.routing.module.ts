@@ -6,6 +6,10 @@ const appRoutes: Routes = [
     path: 'house',
     loadChildren: 'app/house/house.module#HouseModule',
   },
+  {
+    path: 'user',
+    loadChildren: 'app/user/user.module#UserModule',
+  },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 
