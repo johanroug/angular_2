@@ -1,3 +1,9 @@
+# Module lazy
+
+This will load module when going to a route.
+
+Each module has it's own routing in module
+
 # Play
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0.
